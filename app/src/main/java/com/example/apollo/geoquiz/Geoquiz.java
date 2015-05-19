@@ -1,6 +1,7 @@
 package com.example.apollo.geoquiz;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ public class Geoquiz extends ActionBarActivity {
     private Button mPrevButton;
     private Button mCheatButton;
     private TextView mQuestionTextView;
+    private TextView mAndroidApiLevel;
 
 
     private TrueFalse[] mQuestionBank = new TrueFalse[]{
@@ -95,7 +97,8 @@ public class Geoquiz extends ActionBarActivity {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
         }
         updateQuestion();
-
+        mAndroidApiLevel = (TextView) findViewById(R.id.android_api);
+        mAndroidApiLevel.setText("Android Version " + Build.VERSION.SDK_INT);
     }
 
     @Override

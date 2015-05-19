@@ -1,6 +1,7 @@
 package com.example.apollo.geoquiz;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,7 @@ public class CheatActivity extends ActionBarActivity {
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
+    private TextView mAndroidApiLevel;
 
     private void setAnswerShownResult(boolean isAnswerShown){
         Intent data = new Intent();
@@ -61,6 +63,8 @@ public class CheatActivity extends ActionBarActivity {
                 setAnswerShownResult(true);
             }
         });
+        mAndroidApiLevel = (TextView) findViewById(R.id.android_api_cheat);
+        mAndroidApiLevel.setText("Android Version " + Build.VERSION.SDK_INT);
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState){
